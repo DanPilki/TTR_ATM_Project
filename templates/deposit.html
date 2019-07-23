@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div id="centerDiv" class="container">
+        <h1>
+            Deposit money for pin: {{ pin }}
+        </h1>
+        <div class="squareBack">
+            <form method="POST" action="">
+                <select name="acct_choice" required="True">
+                    <option value="checking_acct">Deposit into Checking</option>
+                    <option value="savings_acct">Deposit into Savings</option>
+                </select>
+                <input type="number" step=".01" min="0" placeholder="Deposit Amount" name="deposit_amt"
+                       value="{{ request.form.deposit_amt }}">
+                <button type="submit">Submit</button>
+            </form>
+            {% if error %}
+                <p class="error">Error: {{ error }}</p>
+            {% endif %}
+            <button onclick="window.location.href= '/acctinfo/{{ pin }}';">Back</button>
+        </div>
+    </div>
+{% endblock content %}

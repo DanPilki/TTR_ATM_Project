@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!----------Basic Page Needs------------>
+    <meta charset="utf-8">
+
+    <!----------Mobile Page Needs----------->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!---------------Font------------------->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <!------------Style Sheets-------------->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='skeleton.css') }}">
+
+    {% if title %}
+		<title>{{ title }}</title>
+    {% else %}
+        <title>ATM Machine</title>
+	{% endif %}
+
+    <style>
+        h1
+        {
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+        #centerDiv
+        {
+            text-align: center;
+            padding:50px;
+        }
+        body
+        {
+            background-image: url("/static/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: #cccccc;
+            z-index: -1;
+        }
+        div.squareBack
+        {
+            padding: 50px;
+            background-color: white;
+            border-radius: 25px;
+            width: 300px;
+            z-index: 1;
+            display: inline-block;
+            margin-top: 60px;
+        }
+        div.logo
+        {
+            padding-top: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        ul.freshList
+        {
+            list-style-type: disc;
+            font-weight: bold;
+        }
+        p
+        {
+            font-weight: bold;
+        }
+        img
+        {
+            border-radius: 25px;
+            color: white;
+            width: 150px;
+            height: 75px;
+            display: inline-block;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<div class="logo">
+    <img src="/static/logo.PNG">
+</div>
+    {% block content %}
+    {% endblock %}
+</body>
+
+
+</html>

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div id="centerDiv" class="container">
+        <h1>
+            Withdrawals
+        </h1>
+        <div class="squareBack">
+            <p>
+                Amount Left in Checking: ${{ '{0:.2f}'.format(check) }}
+            </p>
+            <p>
+                Amount Left in Savings: ${{ '{0:.2f}'.format(save) }}
+            </p>
+            <form method="POST" action="">
+                <select name="acct_choice" required="True">
+                    <option value="checking_acct">Withdraw from Checking</option>
+                    <option value="savings_acct">Withdraw from Savings</option>
+                </select>
+                <input type="number" step=".01" min="0" placeholder="Withdraw Amount" name="withdraw_amt"
+                   value="{{ request.form.withdraw_amt }}">
+                <button type="submit">Submit</button>
+            </form>
+            {% if error %}
+                <p class="error">Error: {{ error }}</p>
+            {% endif %}
+            <button onclick="window.location.href= '/acctinfo/{{ pin }}';">Back</button>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div id="centerDiv" class="container">
+        <h1>
+            Account Information for Pin: {{ pin }}
+        </h1>
+        <br>
+        <br>
+        <div class="squareBack">
+            <p>Checking Amount: ${{ '{0:.2f}'.format(check) }}</p>
+            <br>
+            <p>Savings Amount: ${{ '{0:.2f}'.format(save) }}</p>
+            <button onclick="window.location.href='/deposit/{{ pin }}/{{ check }}/{{ save }}';">Deposits</button>
+            <button onclick="window.location.href='/withdraw/{{ pin }}/{{ check }}/{{ save }}';">Withdrawals</button>
+            <button onclick="window.location.href='/transfer/{{ pin }}/{{ check }}/{{ save }}';">Transfer Cash</button>
+            <button onclick="window.location.href='/';">Log Out</button>
+        </div>
+    </div>
+
+
+{% endblock content %}

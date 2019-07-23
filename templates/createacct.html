@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div id="centerDiv" class="container">
+        <h1>
+            Register with us Today!
+        </h1>
+        <div class="squareBack">
+            <p>
+            Please enter a pin:
+            </p>
+            <br>
+            <form method="POST" action="">
+                <input type="number" placeholder="New Pin" name="pin_entry"
+                   value="{{ request.form.pin_entry }}">
+                <button type="submit">Submit</button>
+            </form>
+
+            {% if error %}
+                <p class="error">Error: {{ error }}</p>
+            {% endif %}
+            <ul class="freshList">
+                <li>Must be 4 or more numbers in length</li>
+                <li>Must be 8 or less numbers in length</li>
+            </ul>
+            <button onclick="window.location.href= '/';">Back</button>
+        </div>
+    </div>
+{% endblock content %}

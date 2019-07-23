@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div  id="centerDiv" class="container">
+        <h1>
+            Transfer Money
+        </h1>
+        <br>
+        <br>
+        <div class="squareBack">
+            <p>
+                Transfer money for pin: {{ pin }}
+            </p>
+            <p>
+                Amount Left in Checking: ${{ '{0:.2f}'.format(checking) }}
+            </p>
+            <p>
+                Amount Left in Savings: ${{ '{0:.2f}'.format(saving) }}
+            </p>
+            <form method="POST" action="">
+                <select name="acct_choice" required="True">
+                    <option value="c_to_s">Checking to Savings</option>
+                    <option value="s_to_c">Savings to Checking</option>
+                </select>
+                <input type="number" step=".01" min="0" placeholder="Transfer Amount" name="transfer_amt"
+                       value="{{ request.form.transfer_amt }}">
+                <button type="submit">Submit</button>
+            </form>
+            {% if error %}
+                <p class="error">Error: {{ error }}</p>
+            {% endif %}
+            <button onclick="window.location.href= '/acctinfo/{{ pin }}';">Back</button>
+            </div>
+        </div>
+{% endblock content %}

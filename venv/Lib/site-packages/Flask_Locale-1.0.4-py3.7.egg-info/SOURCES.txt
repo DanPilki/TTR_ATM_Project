@@ -1,0 +1,11 @@
+README.rst
+setup.cfg
+setup.py
+Flask_Locale.egg-info/PKG-INFO
+Flask_Locale.egg-info/SOURCES.txt
+Flask_Locale.egg-info/dependency_links.txt
+Flask_Locale.egg-info/not-zip-safe
+Flask_Locale.egg-info/requires.txt
+Flask_Locale.egg-info/top_level.txt
+flask_locale/__init__.py
+flask_locale/version.py
